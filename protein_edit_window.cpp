@@ -20,8 +20,7 @@ protein_edit_window::protein_edit_window(QWidget *parent, std::string protein_na
     this->setWindowTitle(QString::fromStdString("Protein "+protein_name));
     ProteinCollection& program = ProteinCollection::getInstance();
     auto proteinFromList = program.getProteinList().at(protein_name);
-    if (proteinFromList.GetCount() == 0)
-    {
+    if (proteinFromList.GetCount() == 0) {
       ui->label->hide(); // "There is one acid" label
       ui->label_3->hide(); // "First acid" label
       ui->label_4->hide(); // "First acid" value label
@@ -34,8 +33,7 @@ protein_edit_window::protein_edit_window(QWidget *parent, std::string protein_na
       ui->pushButton_8->hide();
       ui->pushButton_9->hide();
       ui->lineEdit->hide();
-    }
-    else if (proteinFromList.GetCount() == 1){
+    } else if (proteinFromList.GetCount() == 1) {
         ui->label_2->hide(); // "Protein is empty" label
         ui->label_5->hide();
         ui->label_6->hide();
@@ -45,8 +43,7 @@ protein_edit_window::protein_edit_window(QWidget *parent, std::string protein_na
         ui->label_4->setText(QString::fromStdString(text));
         ui->pushButton_3->hide();
         ui->pushButton_6->hide();
-    }
-    else{
+    } else {
         ui->label_2->hide();
         ui->label->hide();
         std::string full_name = (proteinFromList.GetHead())->data.getFullName();
@@ -93,7 +90,6 @@ void protein_edit_window::on_pushButton_3_clicked()
 }
 
 
-
 void protein_edit_window::on_pushButton_4_clicked()
 {
     // "Clear protein" button
@@ -114,7 +110,6 @@ void protein_edit_window::on_pushButton_5_clicked()
     new_window->show();
     this->close();
 }
-
 
 
 void protein_edit_window::on_pushButton_6_clicked()
